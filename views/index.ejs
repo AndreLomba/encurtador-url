@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="/images/icon.png" alt="<%= title %>" class="icon">
+      <h1>
+        <%= title %>
+      </h1>
+      <p>Seu novo encurtador de URL</p>
+    </div>
+    <div class="content">
+      <form action="/new" method="post" class="col-md-12">
+        <p>Encurtar URL</p>
+        <div class="mb-3 input-group">
+          <input placeholder="Digite a URL" type="text" name="url" id="url" class="form-control">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">
+              Encurtar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="content mt-5">
+      <form action="/buscar" method="post" class="col-md-12">
+        <p>Buscar URL encurtada por id</p>
+        <div class="mb-3 input-group">
+          <input placeholder="Digite o ID" type="text" name="id" id="id" class="form-control">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">
+              Buscar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="content mt-5">
+      <form action="/buscardata" method="post" class="col-md-12">
+        <p>Buscar URL encurtada por data</p>
+        <div class="mb-3 input-group">
+          <input placeholder="Digite a data para filtrar" type="text" name="data" id="data" class="form-control" placeholder="dd/mm/yyyy"
+          onkeypress="
+              var v = this.value;
+              if (v.match(/^\d{2}$/) !== null) {
+                  this.value = v + '/';
+              } else if (v.match(/^\d{2}\/\d{2}$/) !== null) {
+                  this.value = v + '/';
+              }"
+          maxlength="10">
+          
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">
+              Buscar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    </p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
