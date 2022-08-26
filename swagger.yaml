@@ -1,0 +1,60 @@
+openapi: 3.0.1
+info:
+  title: Encurtador de URL
+  description: Busca URL's encurtadas e também pode gera-las por endpoint.
+  version: 1.0.0
+paths:
+  /new:
+    post:
+      tags:
+        - Adicionar
+      summary: Encurta uma URL
+      requestBody:
+        content:
+          application/json:
+            schema:      # Request body contents
+              type: object
+              properties:
+                url:
+                  type: string
+              example:   # Sample object
+                name: https://portalaluno.unyleya.edu.br/login
+      responses:
+        '200':
+          description: OK
+  /buscar:
+    post:
+      tags:
+        - Buscar
+      summary: Busca um registro pelo id
+      requestBody:
+        content:
+          application/json:
+            schema:      # Request body contents
+              type: object
+              properties:
+                id:
+                  type: integer
+              example:   # Sample object
+                id: 28
+      responses:
+        '200':
+          description: OK
+  /buscardata:
+    post:
+      tags:
+        - Buscar
+      summary: Lista os registro de acordo com a data enviada
+      requestBody:
+        content:
+          application/json:
+            schema:      # Request body contents
+              type: object
+              properties:
+                data:
+                  type: string
+              example:   # Sample object
+                data: 24/08/2022
+      responses:
+        '200':
+          description: OK

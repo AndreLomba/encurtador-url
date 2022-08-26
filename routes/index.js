@@ -3,23 +3,10 @@ var router = express.Router();
 const Sequelize = require('sequelize');
 const Link = require('../models/link');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Encurtador' });
-});
-
-// Redireciona para URL original a URL encurtada recebida
-router.get('/:url_encurtada', async (req, res, next) => {
-  const url_encurtada = req.params.url_encurtada;
- 
-  const resultado = await Link.findOne({ where: { url_encurtada } });
-  if (!resultado) return res.sendStatus(404);
- 
-  resultado.hits++;
-  await resultado.save();
- 
-  res.redirect(resultado.url_original);
-})
+const swaggerUI = require('swagger-ui-express');
+YAML = require('yamljs');
+const spec= YAML.load('./swagger.yaml');
+router.use('/docs', swaggerUI.serve, swaggerUI.setup(spec));
 
 // Busca url_encurtada no banco pelo id
 router.post('/buscar', async (req, res, next) => {
