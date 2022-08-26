@@ -9,11 +9,9 @@ YAML = require('yamljs');
 const spec= YAML.load('./swagger.yaml');
 router.use('/docs', swaggerUI.serve, swaggerUI.setup(spec));
 
-// Busca url_encurtada no banco pelo id
-router.post('/buscar', async (req, res, next) => {
-  id = req.body.id;
-  
-  resultado = [];
+/* Busca url_encurtada no banco pelo id */
+router.get('/buscar/:id', async (req, res, next) => {
+  id = req.params.id;
 =======
 /* GET home page. */
 router.get('/', function(req, res, next) {
