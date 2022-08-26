@@ -3,7 +3,6 @@ var router = express.Router();
 const Sequelize = require('sequelize');
 const Link = require('../models/link');
 
-<<<<<<< HEAD
 const swaggerUI = require('swagger-ui-express');
 YAML = require('yamljs');
 const spec= YAML.load('./swagger.yaml');
@@ -12,16 +11,6 @@ router.use('/docs', swaggerUI.serve, swaggerUI.setup(spec));
 /* Busca url_encurtada no banco pelo id */
 router.get('/buscar/:id', async (req, res, next) => {
   id = req.params.id;
-=======
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Encurtador' });
-});
-
-/* Busca url_encurtada no banco pelo id */
-router.get('/buscar/:id', async (req, res, next) => {
-  id = req.params.id;
->>>>>>> 25ef6a78d1ecbaf1978cde5982351597aa5c8063
   resultado = await Link.findAll({ where: { id } });
   res.json(resultado[0] ? resultado[0].dataValues : [{'Mensagem': 'Nenhum registro encontrado.'}]);
 });
