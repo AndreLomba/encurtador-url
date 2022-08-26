@@ -17,26 +17,22 @@ paths:
               properties:
                 url:
                   type: string
-              example:   # Sample object
+              example:   # URL de exemplo
                 name: https://portalaluno.unyleya.edu.br/login
       responses:
         '200':
           description: OK
-  /buscar:
-    post:
+  /buscar/{id}:
+    get:
       tags:
         - Buscar
       summary: Busca um registro pelo id
-      requestBody:
-        content:
-          application/json:
-            schema:      # Request body contents
-              type: object
-              properties:
-                id:
-                  type: integer
-              example:   # Sample object
-                id: 28
+      parameters:
+        - in: path
+          name: id
+          type: integer
+          required: true
+          description: ID númerico para buscar a URL encurtada.
       responses:
         '200':
           description: OK
