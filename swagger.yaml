@@ -18,7 +18,7 @@ paths:
                 url:
                   type: string
               example:   # URL de exemplo
-                name: https://portalaluno.unyleya.edu.br/login
+                url: https://portalaluno.unyleya.edu.br/login
       responses:
         '200':
           description: OK
